@@ -2,7 +2,21 @@ import React from "react";
 import styled from "styled-components";
 
 function Section() {
-  return <Wrap>Section</Wrap>;
+  return (
+    <Wrap>
+      <ItemText>
+        <h1>Model S</h1>
+        <p>Order Online for Touchless Delivery</p>
+      </ItemText>
+      <Buttons>
+        <ButtonGroup>
+          <LeftButton>Custom Order</LeftButton>
+          <RightButton>Existing Inventory</RightButton>
+        </ButtonGroup>
+        <DownArrow src="/images/down-arrow.svg" />
+      </Buttons>
+    </Wrap>
+  );
 }
 
 export default Section;
@@ -14,4 +28,55 @@ const Wrap = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-image: url("/images/model-s.jpg");
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const ItemText = styled.div`
+  padding-top: 15vh;
+  text-align: center;
+`;
+
+const ButtonGroup = styled.div`
+  display: flex;
+  margin-bottom: 30px;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
+const LeftButton = styled.div`
+  align-items: center;
+  cursor: pointer;
+  margin: 8px;
+  background-color: rgba(23, 26, 32, 0.8);
+  border-radius: 100px;
+  color: white;
+  display: flex;
+  font-size: 12px;
+  height: 40px;
+  justify-content: center;
+  opacity: 0.85;
+  text-transform: uppercase;
+  width: 256px;
+`;
+const RightButton = styled(LeftButton)`
+  background: white;
+  color: black;
+  opacity: 0.65;
+`;
+
+const DownArrow = styled.img`
+  height: 40px;
+  /* margin-bottom: 20px; */
+  animation: animateDown infinite 1.5s;
+  cursor: pointer;
+`;
+
+const Buttons = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
